@@ -12,14 +12,14 @@ class RequestCommand:
 
     def execute(self):
         cpf = self.data.get('cpf')
-        clientId = self.data.get('clientId')
-        if not clientId:
-            print('Erro: clientId is required.')
+        client_id = self.data.get('client_id')
+        if not client_id:
+            print('Erro: client_id is required.')
             return
-        url = os.getenv('SCORE_API_URL')        
-        headers = os.getenv('SCORE_API_HEADERS')
+        url = os.getenv('SCORE_API_URL')
+        headers = {'client-id': client_id}
         params = {'cpf': cpf}
-        print(f'Processando CPF: {cpf}')
+        print(f'Processando CPF: {cpf} para client_id: {client_id}')
         try:
             response = requests.post(url, headers=headers, params=params)
             print(f'Resposta: {response.status_code} - {response.text}')

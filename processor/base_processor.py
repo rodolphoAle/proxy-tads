@@ -7,6 +7,10 @@ class RequestQueue:
 
     def add_request(self, data):
         cpf = data.get('cpf')
+        client_id = data.get('client_id')
+        if not client_id:
+            print('Erro: client_id é obrigatório.')
+            return False
         if any(cmd.data.get('cpf') == cpf for cmd in self.queue):
             print(f'CPF {cpf} já está na fila. Ignorando.')
             return False
