@@ -8,4 +8,5 @@ def proxy():
     data = request.get_json()
     print(f'Received data: {data}')
     request_queue.add_request(data)
-    return jsonify({'status': 'Request received and queued.'}), 202
+    results = request_queue.process_all()
+    return jsonify({'results': results}), 200
