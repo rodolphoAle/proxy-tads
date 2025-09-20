@@ -5,7 +5,7 @@ url = 'http://127.0.0.1:5000/proxy'
 headers = {'Content-Type': 'application/json'}
 
 # Simula envio de vários CPFs
-for i in range(1, 4):
+for i in range(1, 2):
     data = {
         'cpf': f'{i:011d}',
     }

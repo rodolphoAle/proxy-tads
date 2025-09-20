@@ -12,7 +12,6 @@ class RequestCommand:
 
     def execute(self):
         cpf = self.data.get('cpf')
-
         url = os.getenv('SCORE_API_URL')
         client_id = os.getenv('SCORE_API_HEADERS')
         headers = {'client-id': client_id}
