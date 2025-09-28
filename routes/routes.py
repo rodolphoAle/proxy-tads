@@ -1,13 +1,10 @@
-from app import app
 from flask import jsonify
-from processor.request_queue import request_queue
+from services.request_queue import get_request_queue
+from routes import api_bp
 
-@app.route("/proxy/<cpf>", methods=["GET"])
-def proxy(cpf):
-    # cria o comando e adiciona na fila
-    cmd = request_queue.add_request({"cpf": cpf})
-
-    # espera até o worker processar
+@api_bp.route("/proxy/score/<cpf>", methods=["GET"])
+def proxy(cpf):    
+    cmd = get_request_queue().add_request({"cpf": cpf})
     cmd.done.wait()
 
     return jsonify(cmd.result), 200
