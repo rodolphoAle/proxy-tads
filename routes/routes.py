@@ -3,11 +3,6 @@ from flask import jsonify
 from services.request_queue import get_request_queue
 from routes import api_bp
 
-# Contadores simples para métricas
-total_requests = 0
-cache_hits = 0
-cache_misses = 0
-
 @api_bp.route("/proxy/score/<cpf>", methods=["GET"])
 def proxy(cpf):
     global total_requests, cache_hits, cache_misses

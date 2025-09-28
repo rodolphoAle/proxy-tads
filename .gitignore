@@ -17,8 +17,6 @@ __pycache__/
 *.pyc
 *.pyo
 
-*.env
 *.rar
-.env
 
 **/wtf.json
