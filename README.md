@@ -89,7 +89,3 @@ proxy-tads/
 * **Dependency Inversion** : Uso de injeção via factory e importação de serviços.
 * **Clean Code** : Nomes claros, modularização, tratamento de erros, uso de docstrings e comentários explicativos.
 * **Thread-Safe** : Uso de locks e filas do Python para garantir segurança em concorrência.
-
-## Observações
-
-* Para produção, utilize um servidor WSGI (ex: Gunicorn) e configure variáveis de ambiente.
